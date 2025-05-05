@@ -52,3 +52,8 @@ It automatically generates a human-readable report in both **Markdown** and **PD
 
 ```bash
 ./ios-security-scanner <path_to_.app_or_.ipa>
+
+**Example:**
+```bash
+./ios-security-scanner ~/Desktop/SecureVault.app
+

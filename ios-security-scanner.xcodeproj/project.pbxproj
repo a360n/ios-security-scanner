@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5323768E2DC83F5000998EF7 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5323768D2DC83F5000998EF7 /* ArgumentParser */; };
+		532376902DC83F5000998EF7 /* generate-manual in Frameworks */ = {isa = PBXBuildFile; productRef = 5323768F2DC83F5000998EF7 /* generate-manual */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		532375702DC7F5BD00998EF7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -35,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5323768E2DC83F5000998EF7 /* ArgumentParser in Frameworks */,
+				532376902DC83F5000998EF7 /* generate-manual in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +84,8 @@
 			);
 			name = "ios-security-scanner";
 			packageProductDependencies = (
+				5323768D2DC83F5000998EF7 /* ArgumentParser */,
+				5323768F2DC83F5000998EF7 /* generate-manual */,
 			);
 			productName = "ios-security-scanner";
 			productReference = 532375722DC7F5BD00998EF7 /* ios-security-scanner */;
@@ -106,6 +115,9 @@
 			);
 			mainGroup = 532375692DC7F5BD00998EF7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5323768C2DC83F5000998EF7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 532375732DC7F5BD00998EF7 /* Products */;
 			projectDirPath = "";
@@ -285,6 +297,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5323768C2DC83F5000998EF7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5323768D2DC83F5000998EF7 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5323768C2DC83F5000998EF7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		5323768F2DC83F5000998EF7 /* generate-manual */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5323768C2DC83F5000998EF7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = "generate-manual";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5323756A2DC7F5BD00998EF7 /* Project object */;
 }

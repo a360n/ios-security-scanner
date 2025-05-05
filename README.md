@@ -1,4 +1,4 @@
-# 🔍 iOS Security Scanner
+# iOS Security Scanner
 
 A powerful, open-source Swift-based tool that performs static security analysis on iOS app packages (`.app` or `.ipa`).  
 Designed to help iOS developers, security engineers, and mobile testers identify insecure configurations, privacy violations, and risky practices **before release**.

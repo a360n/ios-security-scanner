@@ -1,59 +1,87 @@
-# 🛡️ iOS Security Scanner
+# 🔍 iOS Security Scanner
 
-**iOS Security Scanner** is a Swift-based command-line tool that scans `.app` and `.ipa` files for common security misconfigurations and privacy risks in iOS applications.  
-It automatically generates a human-readable report in both **Markdown** and **PDF** formats.
-
----
-
-## ✨ Features
-
-- ✅ **27 Static Security Checks** covering entitlements, URL schemes, ATS, hardcoded secrets, insecure networking, and more.
-- 📄 **Markdown + PDF Report Generation** with clean formatting.
-- 🔍 **No External Dependencies** – fully self-contained.
-- 🛠 Written in pure Swift.
+A powerful, open-source Swift-based tool that performs static security analysis on iOS app packages (`.app` or `.ipa`).  
+Designed to help iOS developers, security engineers, and mobile testers identify insecure configurations, privacy violations, and risky practices **before release**.
 
 ---
 
-## 🔍 Supported Checks
+##  Project Goal
 
-| # | Check                             | Description |
-|--:|----------------------------------|-------------|
-| 1 | ATS Check                        | App Transport Security configuration |
-| 2 | Debug Mode                       | Checks for `get-task-allow` |
-| 3 | URL Schemes                      | Custom/insecure URL schemes |
-| 4 | Entitlements                     | Code signing entitlements |
-| 5 | File Sharing                     | `UIFileSharingEnabled` misuse |
-| 6 | Hardcoded Secrets                | API keys, tokens in resources |
-| 7 | HTTP URLs                        | Insecure `http://` links |
-| 8 | Sensitive Files                  | Suspicious files bundled |
-| 9 | Background Modes                 | Enabled background services |
-|10 | Exit on Suspend                  | Suspends app improperly |
-|11 | App Size                         | Size and number of files |
-|12 | Embedded Frameworks              | Checks for signed/unsigned frameworks |
-|13 | ATS Arbitrary Loads              | Use of `NSAllowsArbitraryLoads` |
-|14 | Persistent WiFi                  | Requires constant Wi-Fi? |
-|15 | Indirect Input Events            | Checks for indirect input abuse |
-|16 | Secrets in Resources             | `.strings` and `.json` secrets |
-|17 | Binary Strings                   | Extracts suspicious binary strings |
-|18 | Insecure Network Config          | `NSAllowsArbitraryLoadsInWebContent` |
-|19 | Privacy Permissions              | Camera, mic, location descriptions |
-|20 | Third-party SDKs                 | Known analytics or tracking frameworks |
-|21 | URL Protocols                    | Detects unsafe URL types |
-|22 | ATS Exceptions                   | Overriding default ATS |
-|23 | Secure Text Entry                | Ensures secure password input |
-|24 | App Sandbox                      | App sandbox enforcement |
-|25 | Location Usage                   | Location privacy compliance |
-|26 | Camera / Microphone Usage        | Missing usage descriptions |
-|27 | Photo Library Access             | Checks `NSPhotoLibraryUsageDescription` |
+`iOS Security Scanner` was built to automate the detection of common security issues in iOS apps by scanning their structure, metadata, and resources — with **zero execution required**.
 
 ---
 
-## 🚀 Usage
+##  Core Components
 
-```bash
-./ios-security-scanner <path_to_.app_or_.ipa>
+###  Static Analysis
+- Parses `Info.plist`, entitlements, and app metadata
+- Extracts secrets from `.plist`, `.json`, `.strings`, and binary files
+- Flags insecure configurations or suspicious behaviors
+
+###  .app & .ipa Support
+- Automatically unzips `.ipa` packages
+- Analyzes both development (`.app`) and distribution builds
+
+###  Report Generation
+- Detailed Markdown report with risk summaries
+- Auto-generated PDF version for printing/sharing
+
+---
+
+##  Supported Security Checks (27)
+
+|  Check |  Description |
+|---------|----------------|
+| ATS Configuration | Verifies `NSAppTransportSecurity` policies |
+| Debug Mode | Checks if `get-task-allow` is enabled |
+| URL Schemes | Detects unprotected or custom schemes |
+| Entitlements | Analyzes code signature and sandbox status |
+| File Sharing | Flags `UIFileSharingEnabled` misuse |
+| Hardcoded Secrets | Scans for API keys or sensitive strings |
+| HTTP URLs | Detects non-encrypted links |
+| Sensitive Files | Lists any exposed/unused internal files |
+| Background Modes | Checks declared services |
+| Exit on Suspend | Flags if the app exits when suspended |
+| App Size | Calculates app size and file count |
+| Embedded Frameworks | Inspects included third-party libraries |
+| Arbitrary Loads | Checks for `NSAllowsArbitraryLoads` usage |
+| Persistent WiFi | Looks for `UIRequiresPersistentWiFi` |
+| Indirect Input Events | Validates `UIApplicationSupportsIndirectInputEvents` |
+| Resource Secrets | Scans `.json`, `.plist`, `.strings` for secrets |
+| Binary Strings | Extracts readable strings from binaries |
+| Insecure WebContent ATS | Verifies `NSAllowsArbitraryLoadsInWebContent` |
+| Privacy Permissions | Inspects camera, mic, location access |
+| SDK Tracking | Detects analytics/3rd-party SDKs |
+| Unsafe URL Protocols | Finds use of insecure URL schemes |
+| ATS Exceptions | Lists any ATS overrides or exceptions |
+| Secure Text Entry | Flags sensitive inputs without `secureTextEntry` |
+| App Sandbox | Confirms proper sandboxing is enforced |
+| Location Usage Descriptions | Verifies `NSLocationWhenInUseUsageDescription` |
+| Camera / Mic Usage | Checks justification for usage permissions |
+| Photo Library Access | Inspects access to `NSPhotoLibraryUsageDescription` |
+
+---
+
+##  Example Report
+
+> Sample report files are located in the [`/Reports/`](./Reports/) directory.
+
+- `SecurityReport.md`
+- `SecurityReport.pdf`
 
 
+##  License
 
+This project is licensed under the [MIT License](./LICENSE).  
+Feel free to use, modify, and distribute it with proper attribution.
 
+---
+
+## Author
+
+**Ali Nasser**  
+Secure Mobile App Developer · Application Security Specialist · iOS Security Enthusiast  
+
+- [GitHub](https://github.com/a360n)  
+-  [LinkedIn](https://www.linkedin.com/in/ali-nasser-dev)
 
